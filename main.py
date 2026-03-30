@@ -23,3 +23,13 @@ def bubble_sort(arr: List) -> None:
         # If no swaps occurred, the list is sorted
         if not swapped:
             break
+
+
+def type_decide():
+    potential_type = "simple" or "hard"
+    if potential_type == "simple":
+        print(1)
+    elif potential_type == "hard":
+        print(2)
+    else:
+        print(3)

@@ -40,3 +40,8 @@ Focus on robust error handling, clarity, and adherence to Pythonic best practice
 Follow the standard inline review JSON format defined in the system prompt.  
 Provide **no more than 7 comments**, each precise, actionable, and focused on correctness or clarity.  
 If no issues are found, return an empty array.
+
+### Note
+Verify finding issue, could be it quick fixed, if yes add to description command that will tag and trigger ai agent for resolve issue and provide clear context for resolving issue
+**Command:** `/opencode`
+**Example:** `/opencode simplify current implementation with match case syntax`
