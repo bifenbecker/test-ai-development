@@ -13,11 +13,11 @@ jobs:
 
       - uses: Nikita-Filonov/ai-review@v0.63.0
         with:
-          review-command: run
+          review-command: run-summary
         env:
           # --- LLM configuration ---
           LLM__PROVIDER: "OPENROUTER"
-          LLM__META__MODEL: "nvidia/nemotron-3-super-120b-a12b:free"
+          LLM__META__MODEL: "minimax/minimax-m2.5:free"
           LLM__META__MAX_TOKENS: "15000"
           LLM__META__TEMPERATURE: "0.3"
           LLM__HTTP_CLIENT__API_URL: "https://openrouter.ai/api/v1"
