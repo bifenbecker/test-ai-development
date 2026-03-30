@@ -8,6 +8,9 @@ permissions:
   contents: read
   pull-requests: write
 
+env:
+  OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+
 jobs:
   ai-review:
     runs-on: ubuntu-latest
@@ -19,12 +22,9 @@ jobs:
       - uses: Nikita-Filonov/ai-review@v0.63.0
         with:
           review-command: run
-          prompt:
-            inline_prompt_files:
-              - ./docs/prompts/inline-strict.md
-            summary_prompt_files:
-              - ./docs/prompts/summary-strict.md
         env:
+          AI_REVIEW_CONFIG_FILE_YAML: ./.ai-review.yaml
+
           # --- LLM configuration ---
           LLM__PROVIDER: "OPENROUTER"
           LLM__META__MODEL: "minimax/minimax-m2.5:free"
