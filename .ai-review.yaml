@@ -2,105 +2,105 @@
 # AI Review configuration file
 # ===============================
 
-llm:
-  # Provider for the Large Language Model.
-  # Options: OPENAI | GEMINI | CLAUDE | OLLAMA | BEDROCK | OPENROUTER | AZURE_OPENAI
-  # provider: OPENROUTER
+# llm:
+# Provider for the Large Language Model.
+# Options: OPENAI | GEMINI | CLAUDE | OLLAMA | BEDROCK | OPENROUTER | AZURE_OPENAI
+# provider: OPENROUTER
 
-  # Path to the pricing file used for cost estimation.
-  # Default: ./pricing.yaml
-  # pricing_file: ./pricing.yaml
+# Path to the pricing file used for cost estimation.
+# Default: ./pricing.yaml
+# pricing_file: ./pricing.yaml
 
-  # LLM metadata configuration (depends on provider).
-  # meta:
-  # --- OpenAI ---
-  # model: gpt-4o-mini  # e.g., gpt-4o, gpt-4o-mini, gpt-3.5-turbo, gpt-4.1, gpt-4.1-mini, gpt-5
-  # max_tokens: 1200    # (optional) Maximum tokens for completion
-  # temperature: 0.3    # (optional) Creativity of responses (0 = deterministic)
+# LLM metadata configuration (depends on provider).
+# meta:
+# --- OpenAI ---
+# model: gpt-4o-mini  # e.g., gpt-4o, gpt-4o-mini, gpt-3.5-turbo, gpt-4.1, gpt-4.1-mini, gpt-5
+# max_tokens: 1200    # (optional) Maximum tokens for completion
+# temperature: 0.3    # (optional) Creativity of responses (0 = deterministic)
 
-  # --- Gemini ---
-  # model: gemini-2.0-pro
-  # max_tokens: 1200
-  # temperature: 0.3
+# --- Gemini ---
+# model: gemini-2.0-pro
+# max_tokens: 1200
+# temperature: 0.3
 
-  # --- Claude ---
-  # model: claude-3-sonnet   # e.g., claude-3-opus, claude-3-haiku
-  # max_tokens: 1200
-  # temperature: 0.3
+# --- Claude ---
+# model: claude-3-sonnet   # e.g., claude-3-opus, claude-3-haiku
+# max_tokens: 1200
+# temperature: 0.3
 
-  # --- Ollama ---
-  # model: llama2               # e.g., llama2, mistral, codellama
-  # max_tokens: 512             # Maps to `num_predict`
-  # temperature: 0.3
-  # num_ctx: 2048               # (optional) Context window size (max tokens in prompt + history)
-  # top_p: 0.9                  # (optional) nucleus sampling
-  # repeat_penalty: 1.1         # (optional) repetition penalty
-  # stop: ["USER:", "SYSTEM:"]  # (optional) stop sequences
-  # seed: 42                    # (optional) random seed for reproducibility
+# --- Ollama ---
+# model: llama2               # e.g., llama2, mistral, codellama
+# max_tokens: 512             # Maps to `num_predict`
+# temperature: 0.3
+# num_ctx: 2048               # (optional) Context window size (max tokens in prompt + history)
+# top_p: 0.9                  # (optional) nucleus sampling
+# repeat_penalty: 1.1         # (optional) repetition penalty
+# stop: ["USER:", "SYSTEM:"]  # (optional) stop sequences
+# seed: 42                    # (optional) random seed for reproducibility
 
-  # --- AWS Bedrock ---
-  # model: anthropic.claude-3-sonnet-20240229-v1:0  # e.g., anthropic.claude-3-opus-20240229-v1:0, amazon.titan-text-premier-v1:0, meta.llama3-70b-instruct-v1:0
-  # max_tokens: 1200
-  # temperature: 0.3
+# --- AWS Bedrock ---
+# model: anthropic.claude-3-sonnet-20240229-v1:0  # e.g., anthropic.claude-3-opus-20240229-v1:0, amazon.titan-text-premier-v1:0, meta.llama3-70b-instruct-v1:0
+# max_tokens: 1200
+# temperature: 0.3
 
-  # --- OpenRouter ---
-  # model: minimax/minimax-m2.5:free # or any other available model
-  # max_tokens: 1200
-  # temperature: 0.3
-  # title: "AI Review" # (optional) project title for analytics
+# --- OpenRouter ---
+# model: minimax/minimax-m2.5:free # or any other available model
+# max_tokens: 1200
+# temperature: 0.3
+# title: "AI Review" # (optional) project title for analytics
 
-  # --- Azure OpenAI ---
-  # model: gpt-4o-mini  # IMPORTANT: In Azure, the `model` field specifies the *deployment name*, not an OpenAI model ID.
-  # max_tokens: 1200
-  # temperature: 0.3
+# --- Azure OpenAI ---
+# model: gpt-4o-mini  # IMPORTANT: In Azure, the `model` field specifies the *deployment name*, not an OpenAI model ID.
+# max_tokens: 1200
+# temperature: 0.3
 
-  # HTTP client configuration for LLM.
-  # http_client:
-  # SSL verification:
-  #  - true  → verify SSL certificates (default, recommended)
-  #  - false → disable SSL verification (use ONLY for test / on-prem environments)
-  #  - path  → path to a custom CA bundle, e.g. /etc/ssl/certs/internal_ca.pem
-  # verify: true
-  # timeout: 120 # Request timeout in seconds
-  # api_url: https://openrouter.ai/api/v1 # Base URL of the provider API
-  # api_token: ${OPENROUTER_API_KEY} # API token (set in env/CI variables)
+# HTTP client configuration for LLM.
+# http_client:
+# SSL verification:
+#  - true  → verify SSL certificates (default, recommended)
+#  - false → disable SSL verification (use ONLY for test / on-prem environments)
+#  - path  → path to a custom CA bundle, e.g. /etc/ssl/certs/internal_ca.pem
+# verify: true
+# timeout: 120 # Request timeout in seconds
+# api_url: https://openrouter.ai/api/v1 # Base URL of the provider API
+# api_token: ${OPENROUTER_API_KEY} # API token (set in env/CI variables)
 
-  # --- Proxy ---
-  # Optional HTTP/HTTPS proxy URL for connecting to the LLM provider.
-  # Useful when your server cannot reach the provider directly (e.g. behind a firewall).
-  # Examples:
-  #   proxy_url: http://proxy.example.com:8080
-  #   proxy_url: https://proxy.example.com:8443
-  # proxy_url: http://proxy.example.com:8080
+# --- Proxy ---
+# Optional HTTP/HTTPS proxy URL for connecting to the LLM provider.
+# Useful when your server cannot reach the provider directly (e.g. behind a firewall).
+# Examples:
+#   proxy_url: http://proxy.example.com:8080
+#   proxy_url: https://proxy.example.com:8443
+# proxy_url: http://proxy.example.com:8080
 
-  # --- Gemini ---
-  # api_url: https://generativelanguage.googleapis.com
-  # api_token: ${GEMINI_API_KEY}
+# --- Gemini ---
+# api_url: https://generativelanguage.googleapis.com
+# api_token: ${GEMINI_API_KEY}
 
-  # --- Claude ---
-  # api_url: https://api.anthropic.com
-  # api_token: ${CLAUDE_API_KEY}
-  # api_version: 2023-06-01
+# --- Claude ---
+# api_url: https://api.anthropic.com
+# api_token: ${CLAUDE_API_KEY}
+# api_version: 2023-06-01
 
-  # --- Ollama ---
-  # api_url: http://localhost:11434   # Local Ollama runtime
-  # (no api_token required)
+# --- Ollama ---
+# api_url: http://localhost:11434   # Local Ollama runtime
+# (no api_token required)
 
-  # --- AWS Bedrock ---
-  # api_url: https://bedrock-runtime.<region>.amazonaws.com
-  # region: us-east-1
-  # access_key: ${AWS_ACCESS_KEY_ID}
-  # secret_key: ${AWS_SECRET_ACCESS_KEY}
-  # session_token: ${AWS_SESSION_TOKEN}   # optional, for STS / assumed roles
+# --- AWS Bedrock ---
+# api_url: https://bedrock-runtime.<region>.amazonaws.com
+# region: us-east-1
+# access_key: ${AWS_ACCESS_KEY_ID}
+# secret_key: ${AWS_SECRET_ACCESS_KEY}
+# session_token: ${AWS_SESSION_TOKEN}   # optional, for STS / assumed roles
 
-  # --- OpenRouter ---
-  # api_url: https://openrouter.ai/api/v1
-  # api_token: ${OPENROUTER_API_KEY}
+# --- OpenRouter ---
+# api_url: https://openrouter.ai/api/v1
+# api_token: ${OPENROUTER_API_KEY}
 
-  # --- Azure OpenAI ---
-  # api_url: https://<your-resource>.openai.azure.com
-  # api_token: ${AZURE_OPENAI_API_KEY}
-  # api_version: 2024-06-01
+# --- Azure OpenAI ---
+# api_url: https://<your-resource>.openai.azure.com
+# api_token: ${AZURE_OPENAI_API_KEY}
+# api_version: 2024-06-01
 
 # vcs:
 # Version control system provider.
