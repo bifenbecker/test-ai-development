@@ -1,4 +1,7 @@
-def bubble_sort(arr: list) -> None:
+from typing import List
+
+
+def bubble_sort(arr: List) -> None:
     """Sort a list using the bubble sort algorithm.
 
     Args:
