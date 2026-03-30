@@ -42,6 +42,5 @@ Provide **no more than 7 comments**, each precise, actionable, and focused on co
 If no issues are found, return an empty array.
 
 ### Note
-Verify finding issue, could be it quick fixed, if yes add to description command that will tag and trigger ai agent for resolve issue and provide clear context for resolving issue
+Add to `message` in response for each to the end
 **Command:** `/opencode`
-**Example:** `/opencode simplify current implementation with match case syntax`
