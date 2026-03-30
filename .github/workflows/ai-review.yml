@@ -19,6 +19,11 @@ jobs:
       - uses: Nikita-Filonov/ai-review@v0.63.0
         with:
           review-command: run
+          prompt:
+            inline_prompt_files:
+              - ./docs/prompts/inline-strict.md
+            summary_prompt_files:
+              - ./docs/prompts/summary-strict.md
         env:
           # --- LLM configuration ---
           LLM__PROVIDER: "OPENROUTER"
