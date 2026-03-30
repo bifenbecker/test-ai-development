@@ -29,4 +29,4 @@ jobs:
             - Check for code quality issues
             - Look for potential bugs
             - Suggest improvements
-            Add /opencode fix this at the end
+            use inline suggestions for code snippets with description and context
