@@ -9,7 +9,7 @@ llm:
 
   # Path to the pricing file used for cost estimation.
   # Default: ./pricing.yaml
-  pricing_file: ./pricing.yaml
+  # pricing_file: ./pricing.yaml
 
   # LLM metadata configuration (depends on provider).
   meta:
