@@ -5,254 +5,254 @@
 llm:
   # Provider for the Large Language Model.
   # Options: OPENAI | GEMINI | CLAUDE | OLLAMA | BEDROCK | OPENROUTER | AZURE_OPENAI
-  provider: OPENROUTER
+  # provider: OPENROUTER
 
   # Path to the pricing file used for cost estimation.
   # Default: ./pricing.yaml
   # pricing_file: ./pricing.yaml
 
   # LLM metadata configuration (depends on provider).
-  meta:
-    # --- OpenAI ---
-    # model: gpt-4o-mini  # e.g., gpt-4o, gpt-4o-mini, gpt-3.5-turbo, gpt-4.1, gpt-4.1-mini, gpt-5
-    # max_tokens: 1200    # (optional) Maximum tokens for completion
-    # temperature: 0.3    # (optional) Creativity of responses (0 = deterministic)
+  # meta:
+  # --- OpenAI ---
+  # model: gpt-4o-mini  # e.g., gpt-4o, gpt-4o-mini, gpt-3.5-turbo, gpt-4.1, gpt-4.1-mini, gpt-5
+  # max_tokens: 1200    # (optional) Maximum tokens for completion
+  # temperature: 0.3    # (optional) Creativity of responses (0 = deterministic)
 
-    # --- Gemini ---
-    # model: gemini-2.0-pro
-    # max_tokens: 1200
-    # temperature: 0.3
+  # --- Gemini ---
+  # model: gemini-2.0-pro
+  # max_tokens: 1200
+  # temperature: 0.3
 
-    # --- Claude ---
-    # model: claude-3-sonnet   # e.g., claude-3-opus, claude-3-haiku
-    # max_tokens: 1200
-    # temperature: 0.3
+  # --- Claude ---
+  # model: claude-3-sonnet   # e.g., claude-3-opus, claude-3-haiku
+  # max_tokens: 1200
+  # temperature: 0.3
 
-    # --- Ollama ---
-    # model: llama2               # e.g., llama2, mistral, codellama
-    # max_tokens: 512             # Maps to `num_predict`
-    # temperature: 0.3
-    # num_ctx: 2048               # (optional) Context window size (max tokens in prompt + history)
-    # top_p: 0.9                  # (optional) nucleus sampling
-    # repeat_penalty: 1.1         # (optional) repetition penalty
-    # stop: ["USER:", "SYSTEM:"]  # (optional) stop sequences
-    # seed: 42                    # (optional) random seed for reproducibility
+  # --- Ollama ---
+  # model: llama2               # e.g., llama2, mistral, codellama
+  # max_tokens: 512             # Maps to `num_predict`
+  # temperature: 0.3
+  # num_ctx: 2048               # (optional) Context window size (max tokens in prompt + history)
+  # top_p: 0.9                  # (optional) nucleus sampling
+  # repeat_penalty: 1.1         # (optional) repetition penalty
+  # stop: ["USER:", "SYSTEM:"]  # (optional) stop sequences
+  # seed: 42                    # (optional) random seed for reproducibility
 
-    # --- AWS Bedrock ---
-    # model: anthropic.claude-3-sonnet-20240229-v1:0  # e.g., anthropic.claude-3-opus-20240229-v1:0, amazon.titan-text-premier-v1:0, meta.llama3-70b-instruct-v1:0
-    # max_tokens: 1200
-    # temperature: 0.3
+  # --- AWS Bedrock ---
+  # model: anthropic.claude-3-sonnet-20240229-v1:0  # e.g., anthropic.claude-3-opus-20240229-v1:0, amazon.titan-text-premier-v1:0, meta.llama3-70b-instruct-v1:0
+  # max_tokens: 1200
+  # temperature: 0.3
 
-    # --- OpenRouter ---
-    model: minimax/minimax-m2.5:free # or any other available model
-    max_tokens: 1200
-    temperature: 0.3
-    title: "AI Review" # (optional) project title for analytics
+  # --- OpenRouter ---
+  # model: minimax/minimax-m2.5:free # or any other available model
+  # max_tokens: 1200
+  # temperature: 0.3
+  # title: "AI Review" # (optional) project title for analytics
 
-    # --- Azure OpenAI ---
-    # model: gpt-4o-mini  # IMPORTANT: In Azure, the `model` field specifies the *deployment name*, not an OpenAI model ID.
-    # max_tokens: 1200
-    # temperature: 0.3
+  # --- Azure OpenAI ---
+  # model: gpt-4o-mini  # IMPORTANT: In Azure, the `model` field specifies the *deployment name*, not an OpenAI model ID.
+  # max_tokens: 1200
+  # temperature: 0.3
 
   # HTTP client configuration for LLM.
-  http_client:
-    # SSL verification:
-    #  - true  → verify SSL certificates (default, recommended)
-    #  - false → disable SSL verification (use ONLY for test / on-prem environments)
-    #  - path  → path to a custom CA bundle, e.g. /etc/ssl/certs/internal_ca.pem
-    verify: true
-    timeout: 120 # Request timeout in seconds
-    api_url: https://openrouter.ai/api/v1 # Base URL of the provider API
-    api_token: ${OPENROUTER_API_KEY} # API token (set in env/CI variables)
+  # http_client:
+  # SSL verification:
+  #  - true  → verify SSL certificates (default, recommended)
+  #  - false → disable SSL verification (use ONLY for test / on-prem environments)
+  #  - path  → path to a custom CA bundle, e.g. /etc/ssl/certs/internal_ca.pem
+  # verify: true
+  # timeout: 120 # Request timeout in seconds
+  # api_url: https://openrouter.ai/api/v1 # Base URL of the provider API
+  # api_token: ${OPENROUTER_API_KEY} # API token (set in env/CI variables)
 
-    # --- Proxy ---
-    # Optional HTTP/HTTPS proxy URL for connecting to the LLM provider.
-    # Useful when your server cannot reach the provider directly (e.g. behind a firewall).
-    # Examples:
-    #   proxy_url: http://proxy.example.com:8080
-    #   proxy_url: https://proxy.example.com:8443
-    # proxy_url: http://proxy.example.com:8080
+  # --- Proxy ---
+  # Optional HTTP/HTTPS proxy URL for connecting to the LLM provider.
+  # Useful when your server cannot reach the provider directly (e.g. behind a firewall).
+  # Examples:
+  #   proxy_url: http://proxy.example.com:8080
+  #   proxy_url: https://proxy.example.com:8443
+  # proxy_url: http://proxy.example.com:8080
 
-    # --- Gemini ---
-    # api_url: https://generativelanguage.googleapis.com
-    # api_token: ${GEMINI_API_KEY}
+  # --- Gemini ---
+  # api_url: https://generativelanguage.googleapis.com
+  # api_token: ${GEMINI_API_KEY}
 
-    # --- Claude ---
-    # api_url: https://api.anthropic.com
-    # api_token: ${CLAUDE_API_KEY}
-    # api_version: 2023-06-01
+  # --- Claude ---
+  # api_url: https://api.anthropic.com
+  # api_token: ${CLAUDE_API_KEY}
+  # api_version: 2023-06-01
 
-    # --- Ollama ---
-    # api_url: http://localhost:11434   # Local Ollama runtime
-    # (no api_token required)
+  # --- Ollama ---
+  # api_url: http://localhost:11434   # Local Ollama runtime
+  # (no api_token required)
 
-    # --- AWS Bedrock ---
-    # api_url: https://bedrock-runtime.<region>.amazonaws.com
-    # region: us-east-1
-    # access_key: ${AWS_ACCESS_KEY_ID}
-    # secret_key: ${AWS_SECRET_ACCESS_KEY}
-    # session_token: ${AWS_SESSION_TOKEN}   # optional, for STS / assumed roles
+  # --- AWS Bedrock ---
+  # api_url: https://bedrock-runtime.<region>.amazonaws.com
+  # region: us-east-1
+  # access_key: ${AWS_ACCESS_KEY_ID}
+  # secret_key: ${AWS_SECRET_ACCESS_KEY}
+  # session_token: ${AWS_SESSION_TOKEN}   # optional, for STS / assumed roles
 
-    # --- OpenRouter ---
-    # api_url: https://openrouter.ai/api/v1
-    # api_token: ${OPENROUTER_API_KEY}
+  # --- OpenRouter ---
+  # api_url: https://openrouter.ai/api/v1
+  # api_token: ${OPENROUTER_API_KEY}
 
-    # --- Azure OpenAI ---
-    # api_url: https://<your-resource>.openai.azure.com
-    # api_token: ${AZURE_OPENAI_API_KEY}
-    # api_version: 2024-06-01
+  # --- Azure OpenAI ---
+  # api_url: https://<your-resource>.openai.azure.com
+  # api_token: ${AZURE_OPENAI_API_KEY}
+  # api_version: 2024-06-01
 
-vcs:
-  # Version control system provider.
-  # Options: GITLAB | GITHUB | BITBUCKET_CLOUD | BITBUCKET_SERVER | AZURE_DEVOPS | GITEA
-  provider: GITHUB
+# vcs:
+# Version control system provider.
+# Options: GITLAB | GITHUB | BITBUCKET_CLOUD | BITBUCKET_SERVER | AZURE_DEVOPS | GITEA
+# provider: GITHUB
 
-  # Pipeline/MR/PR context.
-  pipeline:
-    # --- GitLab ---
-    # project_id: ${CI_PROJECT_ID} # GitLab project ID (auto-populated in CI)
-    # merge_request_id: ${CI_MERGE_REQUEST_IID} # Merge Request IID (auto-populated in CI)
+# Pipeline/MR/PR context.
+# pipeline:
+# --- GitLab ---
+# project_id: ${CI_PROJECT_ID} # GitLab project ID (auto-populated in CI)
+# merge_request_id: ${CI_MERGE_REQUEST_IID} # Merge Request IID (auto-populated in CI)
 
-    # --- GitHub ---
-    owner: ${GITHUB_REPOSITORY_OWNER} # Repo owner (e.g. "my-org")
-    repo: ${GITHUB_REPOSITORY_NAME} # Repo name  (e.g. "my-service")
-    pull_number: ${PR_NUMBER} # Pull Request number
+# --- GitHub ---
+# owner: ${GITHUB_REPOSITORY_OWNER} # Repo owner (e.g. "my-org")
+# repo: ${GITHUB_REPOSITORY_NAME} # Repo name  (e.g. "my-service")
+# pull_number: ${PR_NUMBER} # Pull Request number
 
-    # --- Bitbucket Cloud ---
-    # workspace: ${BITBUCKET_WORKSPACE}    # Workspace ID (e.g. "myteam")
-    # repo_slug: ${BITBUCKET_REPO_SLUG}    # Repository slug (short name, e.g. "my-service")
-    # pull_request_id: ${BITBUCKET_PR_ID}  # Pull Request ID (numeric, e.g. "42")
+# --- Bitbucket Cloud ---
+# workspace: ${BITBUCKET_WORKSPACE}    # Workspace ID (e.g. "myteam")
+# repo_slug: ${BITBUCKET_REPO_SLUG}    # Repository slug (short name, e.g. "my-service")
+# pull_request_id: ${BITBUCKET_PR_ID}  # Pull Request ID (numeric, e.g. "42")
 
-    # --- Bitbucket Server ---
-    # project_key: ${BITBUCKET_PROJECT_KEY}   # Project key (e.g. "BANK")
-    # repo_slug: ${BITBUCKET_REPO_SLUG}       # Repository slug (short name, e.g. "core-banking")
-    # pull_request_id: ${BITBUCKET_PR_ID}     # Pull Request ID (numeric, e.g. "101")
+# --- Bitbucket Server ---
+# project_key: ${BITBUCKET_PROJECT_KEY}   # Project key (e.g. "BANK")
+# repo_slug: ${BITBUCKET_REPO_SLUG}       # Repository slug (short name, e.g. "core-banking")
+# pull_request_id: ${BITBUCKET_PR_ID}     # Pull Request ID (numeric, e.g. "101")
 
-    # --- Azure DevOps ---
-    # organization: ${SYSTEM_COLLECTIONURI}                 # Organization name or URL prefix (e.g. "my-org")
-    # project: ${SYSTEM_TEAMPROJECT}                        # Project name (e.g. "bank-platform")
-    # repository_id: ${BUILD_REPOSITORY_ID}                 # Repository GUID (unique per repo)
-    # pull_request_id: ${SYSTEM_PULLREQUEST_PULLREQUESTID}  # Pull Request ID (numeric, e.g. "123")
-    # iteration_id: ${SYSTEM_PULLREQUEST_ITERATIONID}       # Review iteration ID (used to fetch comments per iteration)
+# --- Azure DevOps ---
+# organization: ${SYSTEM_COLLECTIONURI}                 # Organization name or URL prefix (e.g. "my-org")
+# project: ${SYSTEM_TEAMPROJECT}                        # Project name (e.g. "bank-platform")
+# repository_id: ${BUILD_REPOSITORY_ID}                 # Repository GUID (unique per repo)
+# pull_request_id: ${SYSTEM_PULLREQUEST_PULLREQUESTID}  # Pull Request ID (numeric, e.g. "123")
+# iteration_id: ${SYSTEM_PULLREQUEST_ITERATIONID}       # Review iteration ID (used to fetch comments per iteration)
 
-    # --- Gitea ---
-    # owner: ${GITEA_REPOSITORY_OWNER}  # Repo owner (e.g. "my-org")
-    # repo: ${GITEA_REPOSITORY_NAME}    # Repo name  (e.g. "my-service")
-    # pull_number: ${PR_NUMBER}         # Pull Request number
+# --- Gitea ---
+# owner: ${GITEA_REPOSITORY_OWNER}  # Repo owner (e.g. "my-org")
+# repo: ${GITEA_REPOSITORY_NAME}    # Repo name  (e.g. "my-service")
+# pull_number: ${PR_NUMBER}         # Pull Request number
 
-  # HTTP client configuration for VCS.
-  http_client:
-    # SSL verification:
-    #  - true  → verify SSL certificates (default, recommended)
-    #  - false → disable SSL verification (use ONLY for test / on-prem environments)
-    #  - path  → path to a custom CA bundle, e.g. /etc/ssl/certs/internal_ca.pem
-    verify: true
+# HTTP client configuration for VCS.
+# http_client:
+# SSL verification:
+#  - true  → verify SSL certificates (default, recommended)
+#  - false → disable SSL verification (use ONLY for test / on-prem environments)
+#  - path  → path to a custom CA bundle, e.g. /etc/ssl/certs/internal_ca.pem
+# verify: true
 
-    timeout: 120 # Request timeout in seconds
+# timeout: 120 # Request timeout in seconds
 
-    # --- Proxy ---
-    # Optional HTTP/HTTPS proxy URL for connecting to the VCS provider.
-    # Useful when the server cannot reach the VCS API directly (e.g. behind a firewall).
-    # proxy_url: http://proxy.example.com:8080
+# --- Proxy ---
+# Optional HTTP/HTTPS proxy URL for connecting to the VCS provider.
+# Useful when the server cannot reach the VCS API directly (e.g. behind a firewall).
+# proxy_url: http://proxy.example.com:8080
 
-    # --- GitLab ---
-    # api_url: ${CI_SERVER_URL} # Base GitLab server URL
-    # api_token: ${CI_JOB_TOKEN} # Job token or personal access token
+# --- GitLab ---
+# api_url: ${CI_SERVER_URL} # Base GitLab server URL
+# api_token: ${CI_JOB_TOKEN} # Job token or personal access token
 
-    # --- GitHub ---
-    api_url: https://api.github.com
-    api_token: ${GITHUB_TOKEN} # GitHub Actions token or PAT
+# --- GitHub ---
+# api_url: https://api.github.com
+# api_token: ${GITHUB_TOKEN} # GitHub Actions token or PAT
 
-    # --- Bitbucket Cloud ---
-    # api_url: https://api.bitbucket.org/2.0
-    # api_token: ${BITBUCKET_TOKEN}   # App password or OAuth token
+# --- Bitbucket Cloud ---
+# api_url: https://api.bitbucket.org/2.0
+# api_token: ${BITBUCKET_TOKEN}   # App password or OAuth token
 
-    # --- Bitbucket Server ---
-    # api_url: https://bitbucket.mycompany.com/rest/api/1.0
-    # api_token: ${BITBUCKET_SERVER_TOKEN}  # Personal access token or Basic Auth token (Base64)
+# --- Bitbucket Server ---
+# api_url: https://bitbucket.mycompany.com/rest/api/1.0
+# api_token: ${BITBUCKET_SERVER_TOKEN}  # Personal access token or Basic Auth token (Base64)
 
-    # --- Azure DevOps ---
-    # api_url: https://dev.azure.com  # Base API endpoint for your organization
-    # api_token: ${AZURE_DEVOPS_PAT}  # Personal Access Token (PAT) with Code → Read & Write permissions
-    # api_token_type: OAUTH2          # Token type:
-    #                                 #  - OAUTH2 (default) → Authorization: Bearer <token>
-    #                                 #  - PAT              → Authorization: Basic <base64(:PAT)>
-    # api_version: 7.0                # API version (default: 7.0, can be overridden if needed)
+# --- Azure DevOps ---
+# api_url: https://dev.azure.com  # Base API endpoint for your organization
+# api_token: ${AZURE_DEVOPS_PAT}  # Personal Access Token (PAT) with Code → Read & Write permissions
+# api_token_type: OAUTH2          # Token type:
+#                                 #  - OAUTH2 (default) → Authorization: Bearer <token>
+#                                 #  - PAT              → Authorization: Basic <base64(:PAT)>
+# api_version: 7.0                # API version (default: 7.0, can be overridden if needed)
 
-    # --- Gitea ---
-    # api_url: https://gitea.mycompany.com/api/v1
-    # api_token: ${GITEA_TOKEN}       # Personal access token or CI token
+# --- Gitea ---
+# api_url: https://gitea.mycompany.com/api/v1
+# api_token: ${GITEA_TOKEN}       # Personal access token or CI token
 
-  # Pagination settings for API calls.
-  pagination:
-    per_page: 100 # Number of items per API page (default: 100)
-    max_pages: 5 # Maximum number of pages to fetch before stopping (default: 5)
+# Pagination settings for API calls.
+# pagination:
+#   per_page: 100 # Number of items per API page (default: 100)
+#   max_pages: 5 # Maximum number of pages to fetch before stopping (default: 5)
 
-core:
-  # ==============================
-  # Core engine configuration
-  # ==============================
-  # Controls the maximum number of concurrently running async tasks.
-  # Used in bounded_gather() to limit concurrency when sending requests
-  # (e.g., posting comments or fetching data from LLM/VCS APIs).
-  #
-  # Increasing this value allows more operations in parallel,
-  # but may hit API rate limits or increase memory consumption.
-  #
-  # Recommended: 5–10 for LLM requests, depending on model rate limits.
-  concurrency: 5
+# core:
+# ==============================
+# Core engine configuration
+# ==============================
+# Controls the maximum number of concurrently running async tasks.
+# Used in bounded_gather() to limit concurrency when sending requests
+# (e.g., posting comments or fetching data from LLM/VCS APIs).
+#
+# Increasing this value allows more operations in parallel,
+# but may hit API rate limits or increase memory consumption.
+#
+# Recommended: 5–10 for LLM requests, depending on model rate limits.
+# concurrency: 5
 
-agent:
-  # Enables iterative agent mode for review.
-  # false (default): classic one-shot LLM call.
-  # true: model can run multiple command/tool steps before FINAL output.
-  enabled: true
+# agent:
+# Enables iterative agent mode for review.
+# false (default): classic one-shot LLM call.
+# true: model can run multiple command/tool steps before FINAL output.
+# enabled: true
 
-  # Maximum number of loop iterations in a single agent run.
-  # One iteration = one model response (TOOL_CALL or FINAL).
-  # Protects from infinite loops and helps control latency/cost.
-  #
-  # Suggested:
-  # - 10..25 for normal repositories
-  # - 25..50 for larger codebases with complex cross-file logic
-  max_iterations: 10
+# Maximum number of loop iterations in a single agent run.
+# One iteration = one model response (TOOL_CALL or FINAL).
+# Protects from infinite loops and helps control latency/cost.
+#
+# Suggested:
+# - 10..25 for normal repositories
+# - 25..50 for larger codebases with complex cross-file logic
+# max_iterations: 10
 
-  # Regex allowlist for executable commands in agent mode.
-  # A command is allowed only if at least one pattern fully matches:
-  #   pattern.fullmatch(command) == True
-  #
-  # Important:
-  # - This is an allowlist (default deny).
-  # - Matching is against the whole command string, not a substring.
-  # - Keep patterns as narrow as possible to avoid accidental broad access.
-  #
-  # Default profile is read-oriented:
-  # - ls / cat / rg / grep
-  # - selected read-only git commands
-  allow_commands:
-    - "^ls(?:\\s+.*)?$"
-    - "^cat(?:\\s+.*)?$"
-    - "^rg(?:\\s+.*)?$"
-    - "^grep(?:\\s+.*)?$"
-    - "^git\\s+(?:status|show|diff|log|rev-parse|ls-files)(?:\\s+.*)?$"
+# Regex allowlist for executable commands in agent mode.
+# A command is allowed only if at least one pattern fully matches:
+#   pattern.fullmatch(command) == True
+#
+# Important:
+# - This is an allowlist (default deny).
+# - Matching is against the whole command string, not a substring.
+# - Keep patterns as narrow as possible to avoid accidental broad access.
+#
+# Default profile is read-oriented:
+# - ls / cat / rg / grep
+# - selected read-only git commands
+# allow_commands:
+#   - "^ls(?:\\s+.*)?$"
+#   - "^cat(?:\\s+.*)?$"
+#   - "^rg(?:\\s+.*)?$"
+#   - "^grep(?:\\s+.*)?$"
+#   - "^git\\s+(?:status|show|diff|log|rev-parse|ls-files)(?:\\s+.*)?$"
 
-  # Max runtime per command (seconds).
-  # If exceeded, command is interrupted and returned as timeout.
-  #
-  # Tune guidance:
-  # - 5..15 for CI-fast feedback
-  # - 20..60 for heavy repositories / slower environments
-  command_timeout: 10
+# Max runtime per command (seconds).
+# If exceeded, command is interrupted and returned as timeout.
+#
+# Tune guidance:
+# - 5..15 for CI-fast feedback
+# - 20..60 for heavy repositories / slower environments
+# command_timeout: 10
 
-  # Total context budget collected from tool outputs during one agent run.
-  # When exceeded, agent loop is forced into FINAL mode.
-  # This helps keep prompts bounded and prevents context explosion.
-  max_total_context_chars: 40000
+# Total context budget collected from tool outputs during one agent run.
+# When exceeded, agent loop is forced into FINAL mode.
+# This helps keep prompts bounded and prevents context explosion.
+# max_total_context_chars: 40000
 
-  # Max size of a single command output returned to the model.
-  # Output above this limit is truncated with a marker.
-  # Helps protect token budget and avoids oversized responses from broad commands.
-  max_command_output_chars: 40000
+# Max size of a single command output returned to the model.
+# Output above this limit is truncated with a marker.
+# Helps protect token budget and avoids oversized responses from broad commands.
+# max_command_output_chars: 40000
 
 prompt:
   # ==============================
