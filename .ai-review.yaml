@@ -286,7 +286,7 @@ prompt:
   #   context_placeholder: "<<{value}>>"
   #   Template: "Env: <<environment>>"
   #   Result:   "Env: staging"
-  context_placeholder: "<<{value}>>"
+  # context_placeholder: "<<{value}>>"
 
   # ==============================
   # Prompt normalization
@@ -314,8 +314,8 @@ prompt:
   # Defaults (if not defined):
   #   - default_agent.md
   #
-  agent_prompt_files:
-    - ./prompts/default_agent.md # Agent behavior prompt
+  # agent_prompt_files:
+  #   - ./prompts/default_agent.md # Agent behavior prompt
 
   # system_agent_prompt_files (joined in order).
   # These define the strict system contract for agent mode:
@@ -326,8 +326,8 @@ prompt:
   # Defaults (if not defined):
   #   - default_system_agent.md
   #
-  system_agent_prompt_files:
-    - ./prompts/default_system_agent.md # System agent prompt
+  # system_agent_prompt_files:
+  #   - ./prompts/default_system_agent.md # System agent prompt
 
   # Whether to include built-in default system agent prompts.
   # true  (default) → always prepend default_system_agent.md
@@ -356,8 +356,8 @@ prompt:
   # Defaults (if not defined):
   #   - default_system_inline.md
   #
-  system_inline_prompt_files:
-    - ./prompts/default_system_inline.md # System inline prompt
+  # system_inline_prompt_files:
+  #   - ./prompts/default_system_inline.md # System inline prompt
 
   # Whether to include built-in default system inline prompts.
   # true  (default) → always prepend default_system_inline.md
@@ -375,8 +375,8 @@ prompt:
   # Defaults (if not defined):
   #   - default_context.md
   #
-  context_prompt_files:
-    - ./prompts/default_context.md # MR-specific context prompt
+  # context_prompt_files:
+  #   - ./prompts/default_context.md # MR-specific context prompt
 
   # system_context_prompt_files (joined in order).
   # These define the *contract* with the model for context review:
@@ -387,8 +387,8 @@ prompt:
   # Defaults (if not defined):
   #   - default_system_context.md
   #
-  system_context_prompt_files:
-    - ./prompts/default_system_context.md # System context prompt
+  # system_context_prompt_files:
+  #   - ./prompts/default_system_context.md # System context prompt
 
   # Whether to include built-in default system context prompts.
   # true  (default) → always prepend default_system_context.md
@@ -417,8 +417,8 @@ prompt:
   # Defaults (if not defined):
   #   - default_system_summary.md
   #
-  system_summary_prompt_files:
-    - ./prompts/default_system_summary.md # System summary prompt
+  # system_summary_prompt_files:
+  #   - ./prompts/default_system_summary.md # System summary prompt
 
   # Whether to include built-in default system summary prompts.
   # true  (default) → always prepend default_system_summary.md
@@ -437,8 +437,8 @@ prompt:
   # Defaults (if not defined):
   #   - default_inline_reply.md
   #
-  inline_reply_prompt_files:
-    - ./prompts/default_inline_reply.md # MR-specific inline reply prompt
+  # inline_reply_prompt_files:
+  #   - ./prompts/default_inline_reply.md # MR-specific inline reply prompt
 
   # system_inline_reply_prompt_files (joined in order).
   # These define the *contract* with the model for inline reply generation:
@@ -449,8 +449,8 @@ prompt:
   # Defaults (if not defined):
   #   - default_system_inline_reply.md
   #
-  system_inline_reply_prompt_files:
-    - ./prompts/default_system_inline_reply.md # System inline reply prompt
+  # system_inline_reply_prompt_files:
+  #   - ./prompts/default_system_inline_reply.md # System inline reply prompt
 
   # Whether to include built-in default system inline reply prompts.
   # true  (default) → always prepend default_system_inline_reply.md
@@ -469,8 +469,8 @@ prompt:
   # Defaults (if not defined):
   #   - default_summary_reply.md
   #
-  summary_reply_prompt_files:
-    - ./prompts/default_summary_reply.md # MR-specific summary reply prompt
+  # summary_reply_prompt_files:
+  #   - ./prompts/default_summary_reply.md # MR-specific summary reply prompt
 
   # system_summary_reply_prompt_files (joined in order).
   # These define the *contract* with the model for summary reply generation:
@@ -481,8 +481,8 @@ prompt:
   # Defaults (if not defined):
   #   - default_system_summary_reply.md
   #
-  system_summary_reply_prompt_files:
-    - ./prompts/default_system_summary_reply.md # System summary reply prompt
+  # system_summary_reply_prompt_files:
+  #   - ./prompts/default_system_summary_reply.md # System summary reply prompt
 
   # Whether to include built-in default system summary reply prompts.
   # true  (default) → always prepend default_system_summary_reply.md
