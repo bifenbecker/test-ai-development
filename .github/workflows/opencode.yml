@@ -12,6 +12,9 @@ permissions:
   pull-requests: write
   issues: write
 
+env:
+  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
 jobs:
   opencode:
     if: >-
@@ -29,3 +32,5 @@ jobs:
           OPENCODE_API_KEY: ${{ secrets.OPENCODE_API_KEY }}
         with:
           model: opencode/qwen3.6-plus-free
+          share: true
+          github_token: ${{ secrets.GITHUB_TOKEN }}
