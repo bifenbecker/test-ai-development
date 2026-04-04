@@ -22,9 +22,9 @@ jobs:
         env:
           # --- LLM configuration ---
           LLM__PROVIDER: "OPENROUTER"
-          LLM__META__MODEL: "minimax/minimax-m2.5:free"
+          LLM__META__MODEL: "qwen/qwen3.6-plus:free"
           LLM__META__MAX_TOKENS: "15000"
-          LLM__META__TEMPERATURE: "0.3"
+          LLM__META__TEMPERATURE: "0.4"
           LLM__HTTP_CLIENT__API_URL: "https://openrouter.ai/api/v1"
           LLM__HTTP_CLIENT__API_TOKEN: ${{ secrets.OPENROUTER_API_KEY }}
 
