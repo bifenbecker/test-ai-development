@@ -29,4 +29,3 @@ jobs:
             - Check for code quality issues
             - Look for potential bugs
             - Suggest improvements
-            use inline suggestions for code snippets with description and context
