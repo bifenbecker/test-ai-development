@@ -1,0 +1,27 @@
+[project]
+name = "test-ai-development"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = []
+
+[dependency-groups]
+dev = [
+    "ruff>=0.15.9",
+    "ty>=0.0.28",
+]
+test = [
+    "pytest>=9.0.2",
+    "pytest-cov>=7.1.0",
+]
+
+[tool.ruff]
+cache-dir = ".cache/ruff_cache"
+
+[tool.pytest]
+addopts = ["-ra", "-q"]
+testpaths = [
+    "tests",
+]
+cache_dir = ".cache/pytest_cache"
